@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: uat-executor
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - image: uat-docker:1.1
+              name: uat-docker
+              resources: {}
+              volumeMounts:
+                - mountPath: /tests
+                  name: uat-pvc
+              imagePullPolicy: IfNotPresent
+          restartPolicy: Never
+          volumes:
+            - name: uat-pvc
+              persistentVolumeClaim:
+                claimName: uat-pvc

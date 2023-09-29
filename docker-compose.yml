@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+
+  uat-executor:
+    image: 'uat-executor'
+    container_name: 'uat-executor'
+    build:
+      context: ./uat-docker
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/tests'
+    network_mode: "host"
