@@ -6,13 +6,11 @@ COPY test.yaml /
 COPY uat-runner.sh /
 COPY body.html /
 
-RUN mkdir -p /root/.mutt/cache/headers
-RUN mkdir /root/.mutt/cache/bodies
-RUN touch /root/.mutt/certificates
+RUN mkdir /root/.mutt
 
 COPY muttrc /root/.mutt/muttrc
-COPY .mutt_certificates /root
-COPY .mutt_certificates /root/.mutt
+RUN touch /root/.mutt/certificates
+RUN touch /root/.mutt_certificates
 
 RUN chmod 755 /uat-runner.sh
 

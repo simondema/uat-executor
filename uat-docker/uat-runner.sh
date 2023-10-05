@@ -7,11 +7,11 @@ now=$(date +"%d-%m-%Y")
 
 mkdir -p ./tests/results
 
-./inso run test "Orchestrator" --src ./test.yaml --env "DOCKER" > "./tests/results/$now.txt"
+./inso run test "${TEST_SUITE}" --src ./test.yaml --env "${PROFILE}" > "./tests/results/$now.txt"
 
 echo "Sending email..."
 
-recipient="simon.dema@outlook.com"
+recipient="${RECIPIENT}"
 subject="Monit UAT Report: $now"
 attachment="./tests/results/$now.txt"
 # read body.html from file and save it in a variable and use it as a body for the email

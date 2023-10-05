@@ -1,13 +1,13 @@
-set from = "testkafkadgc@gmail.com"
+set from = "${EMAIL}"
 set realname = "Kube Test"
 
 # IMAP settings
-set imap_user = "testkafkadgc@gmail.com"
-set imap_pass = "cdorthrkhcbrlslo"
+set imap_user = "${EMAIL}"
+set imap_pass = "${PASSWORD}"
 
 # SMTP settings
-set smtp_url = "smtps://testkafkadgc@smtp.gmail.com"
-set smtp_pass = "cdorthrkhcbrlslo"
+set smtp_url = "smtps://${USERNAME}@smtp.gmail.com"
+set smtp_pass = "${PASSWORD}"
 
 # Remote Gmail folders
 set folder = "imaps://imap.gmail.com/"
