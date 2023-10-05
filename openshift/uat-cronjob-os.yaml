@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-            - image: uat-docker:1.1
+            - image: uat-docker:latest
               name: uat-docker
               resources: {}
               volumeMounts:
