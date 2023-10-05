@@ -20,4 +20,6 @@ body=$(cat ./body.html)
 # send email
 echo "$body" | mutt -s "$subject" $recipient -a "$attachment" -e "set content_type=text/html"
 
+rm -rf ./tests/results
+
 echo "Done!"
