@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uat-configmap
+data:
+  email: <placeholder>
+  username: <placeholder>
+  password: <placeholder>
+  test_suite: <placeholder>
+  env_profile: <placeholder>
+  recipient: <placeholder>

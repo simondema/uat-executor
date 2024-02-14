@@ -1,0 +1,54 @@
+### N.B. placeholder for sidecar container
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: uat-executor
+spec:
+  containers:
+    - image: busybox
+      name: meta
+      args:
+       - '/bin/sh'
+       - '-c'
+       - '....'
+    - image: uat-docker:<tag>
+      name: uat-docker
+      resources: {}
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: EMAIL
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: email
+        - name: USERNAME
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: username
+        - name: PASSWORD
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: password
+        - name: TEST_SUITE
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: test_suite
+        - name: ENV_PROFILE
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: env_profile
+        - name: RECIPIENT
+          valueFrom: 
+            configMapKeyRef:
+              name: uat-configmap
+              key: recipient
+  restartPolicy: Never
+  volumes:
+  - name: config
+    configMap:
+      name: uat-configmap
